@@ -9,7 +9,7 @@ ROOT_DIR = os.path.dirname(SCRIPT_DIR)
 RAW_DATA_DIR = os.path.join(ROOT_DIR, "raw_data")
 
 # Import role-specific modules
-from schema import UnifiedDocument
+from schema import UnifiedDocument, migrate_kb_to_v2
 from process_pdf import extract_pdf_data
 from process_transcript import clean_transcript
 from process_html import parse_html_catalog

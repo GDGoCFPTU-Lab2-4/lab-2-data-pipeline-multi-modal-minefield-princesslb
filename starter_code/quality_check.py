@@ -38,7 +38,8 @@ def _check_min_length(content: str) -> tuple[bool, str]:
 def _check_toxic_strings(content: str) -> tuple[bool, str]:
     lower = content.lower()
     for toxic in TOXIC_STRINGS:
-        if toxic in lower:
+        pattern = r'\b' + re.escape(toxic) + r'\b'
+        if re.search(pattern, lower):
             return False, f"Toxic/error string detected: '{toxic}'"
     return True, ""
 
